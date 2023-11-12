@@ -94,7 +94,7 @@ const Home: NextPage = () => {
             />
             <div className={styles.cardText}>
               <h2 className={styles.gradientText3}>Templates ➜</h2>
-              <p>
+            <p className=" text-yellow-500">
                 Discover and clone template projects showcasing thirdweb
                 features.
               </p>
