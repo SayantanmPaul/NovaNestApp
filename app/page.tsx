@@ -1,9 +1,21 @@
-export default function Page(){
-    return(
-        <div>
-            <h1 className=" text-green-500">
-                Root
-            </h1>
+import React from 'react'
+import Home from './home/page';
+import NavbarComp from '@/components/navbar';
+import SidebarComp from '@/components/sidebar';
+type Props = {}
+
+const page = (props: Props) => {
+  return (
+    <div className='sm:-8 p-4 bg-[#13131a] min-h-screen flex flex-row'>
+        <div className=' sm:flex hidden mr-10 relative'>
+            <SidebarComp/>
         </div>
-    )
+        <div className=' flex-1 max-sm:w-full max-w-[1280px] mx-auto sm:pr-5'>
+            <NavbarComp/>
+            <Home/>
+        </div>
+    </div>
+  )
 }
+
+export default page

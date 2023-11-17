@@ -2,10 +2,10 @@ import React from 'react'
 
 type Props = {}
 
-const CreateCampaignPage = (props: Props) => {
+const CampaignDetailsPage = (props: Props) => {
   return (
-    <div>Create Campaign Page</div>
+    <div>Campaign Details  Page</div>
   )
 }
 
-export default CreateCampaignPage
+export default CampaignDetailsPage;

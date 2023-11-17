@@ -2,9 +2,9 @@ import React from 'react'
 
 type Props = {}
 
-const Profile = (props: Props) => {
+const ProfilePage = (props: Props) => {
   return (
     <div>profile page</div>
   )
 }
-export default Profile;
+export default ProfilePage;
