@@ -1,14 +1,13 @@
 "use client";
-import React, {FC} from 'react'
+import React, {FC, useEffect, useState} from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { sun } from '../assets'
 import puzzle from '../assets/puzzle2.png'
 import { NavLinks } from '../constants'
-import { useState } from 'react';
-import { usePathname } from 'next/navigation';
 import { Tooltip } from '@mui/material';
 
+//utilicon component props
 interface NovaNestIconProps{
     styles: string,
     name: string,
@@ -18,7 +17,7 @@ interface NovaNestIconProps{
     handleClicked: ()=>void
 }
 
-
+//utilicon props
 const UtilIcon:FC<NovaNestIconProps>=({styles, name, imgURl, isActive, disabled, handleClicked})=>(
     <Tooltip title={name} placement='right'>
         <div className={` w-[48px] h-[48px] rounded-lg ${isActive && isActive==name && `bg-[#2c2f32]`} flex justify-center items-center ${!disabled && 'cursor-pointer'} ${styles}`} onClick={handleClicked}>
@@ -33,13 +32,19 @@ const UtilIcon:FC<NovaNestIconProps>=({styles, name, imgURl, isActive, disabled,
 
 type SideBarProps = {}
 
+//main sidebar compoment
 const SidebarComp:FC<SideBarProps>= (props: SideBarProps) => {
-    const[isActive, setIsActive]=useState<string>('dashboard');
-    const pathname=usePathname();
+    const [isActive, setIsActive]=useState(localStorage.getItem('active')||'dashboard' );
+
+    //navigation active state
+    useEffect(()=>{
+        localStorage.setItem('active', isActive);
+    },[isActive])
+
+    
     const navigate=(link:string)=>{
         window.location.href= link;
     }
-
 
   return (
     <div className=' flex flex-col justify-between items-center top-5 h-[90vh] sticky'>
@@ -52,18 +57,18 @@ const SidebarComp:FC<SideBarProps>= (props: SideBarProps) => {
             <div className=' flex flex-col justify-center items-center gap-3'>
                 {NavLinks.map((content)=>(
                     <UtilIcon 
-                        key={content.name} 
+                        key={content.name}  
                         {...content} 
                         isActive={isActive} 
                         handleClicked={()=>{
                             if(!content.disabled){
                                 setIsActive(content.name);
-                                window.location.href=content.link;
+                                navigate(content.link);
                             }
                         }} />       
                 ))} 
             </div>
-            <UtilIcon styles='hover:bg-[#1c1c24] duration-500 shadow-secondary' imgURl={sun} name='mode' disabled={false} isActive={isActive} handleClicked={()=> {}} />
+            <UtilIcon styles='hover:bg-[#1c1c24] duration-500 shadow-secondary' imgURl={sun} name='mode' disabled={false} isActiveState={isActive} handleClicked={()=> {}} />
         </div>
     </div>
   )
