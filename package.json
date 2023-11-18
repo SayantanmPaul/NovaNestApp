@@ -6,11 +6,14 @@
     "dev": "next dev ",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",   
+    "lint": "next lint",
     "export": "next export",
     "deploy": "next build && next export && npx thirdweb@latest upload out"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.18",
     "@thirdweb-dev/react": "^4.1.2",
     "@thirdweb-dev/sdk": "^4.0.11",
     "ethers": "^5.7.2",
