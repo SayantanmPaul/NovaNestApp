@@ -2,7 +2,8 @@
 import React,{FC, useState, useEffect} from 'react'
 import Link from 'next/link'
 import Image from 'next/image';
-import { menu, search, thirdweb} from '../assets';
+import navIcon from '../assets/align-right.png';
+import { search, thirdweb} from '../assets';
 import CustomButton from './button';
 import { NavLinks } from '../constants';
 
@@ -11,6 +12,10 @@ type Props = {}
 const NavbarComp:FC<Props> = (props: Props) => {
   const [isActive, setIsActive]=useState(typeof window!=='undefined'? localStorage.getItem('active')||'dashboard':'dashboard');
   const [toggledrawer,setToggledrawer]=useState(false);
+
+  useEffect(()=>{
+    localStorage.setItem('active', isActive)
+  }, [isActive]);
 
   const address='0xabc'
 
@@ -29,7 +34,7 @@ const NavbarComp:FC<Props> = (props: Props) => {
       <div className='sm:flex hidden flex-row justify-end gap-4'>
         <CustomButton 
           btntype="button" 
-          title={address ? "create campaign": "connect"}
+          title={address ? "create campaign": "onnect"}
           styles={address? "bg-[#1dc071]:": "bg-[#8c6dfd]"}
           handleClicked={()=>{
             if(address) navigate('create-campaign')
@@ -38,16 +43,46 @@ const NavbarComp:FC<Props> = (props: Props) => {
         />
 
         <Link href='/profile'>
-          <div className=' w-[52px] h-[52px] rounded-full bg-[#2c2f32] flex justify-center items-center cursor-pointer '>
+          <div className=' w-14 h-14 rounded-xl bg-[#2c2f32] flex justify-center items-center cursor-pointer '>
             <Image src={thirdweb} alt='user' className=' w-[60%] h-[60%] object-contain  '/>
           </div>
-        </Link>
+        </Link>          
+      </div>
 
-        {/* mobile view */}
-          
-
+      {/* mobile view */}
+      <div className=' sm:hidden flex justify-between items-center relative'>
+        <div className=' w-[40px] h-[40px] rounded-[10px] bg-[#2c2f32] flex justify-center items-center cursor-pointer '>
+          <Image src={thirdweb} alt='user' className=' w-[60%] h-[60%] object-contain  '/>
+        </div>
+        <Image src={navIcon} alt='menu' className=' w-[28px] h-28px] object-contain cursor-pointer mr-2' onClick={()=> setToggledrawer((prev)=>!prev)}/>
+        <div className={`absolute top-16 right-0 left-0 rounded-xl bg-[#1c1c24] z-10 shadow-xl py-4 ${!toggledrawer?'-translate-y-[100vh]':'translate-y-0'} transition-all duration-700`}>
+          <ul className=' mb-4'>
+            {NavLinks.map((content)=>(
+              <li key={content.name} className={`flex p-4 mx-2 ${isActive===content.name && 'bg-[#3a3a43] rounded-lg'}`} onClick={()=>{
+                setIsActive(content.name)
+                setToggledrawer(false)
+                navigate(content.link)
+              }}>
+                <Image src={content.imgURl} alt={content.name} className={`w-6 h-6 object-contain ${isActive===content.name? ' grayscale-0': ' grayscale'}`}/>
+                <p className={`ml-5 font-semibold text-sm ${isActive=== content.name? 'text-[#1dc071] ': 'text-[#808191]'}`}>{content.name}</p>
+              </li>
+            ))}
+          </ul>
+          <div className=' flex mx-4'>
+            <CustomButton 
+              btntype="button" 
+              title={address ? "create campaign": "onnect"}
+              styles={address? "bg-[#1dc071]:": "bg-[#8c6dfd]"}
+              handleClicked={()=>{
+                if(address) navigate('create-campaign')
+                else navigate('connect')
+              }}
+            />
+          </div>
+        </div>
       </div>
     </div>
+
   )
 }
 
