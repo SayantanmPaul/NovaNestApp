@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image';
 import navIcon from '../assets/align-right.png';
 import { search, thirdweb} from '../assets';
+import Novanest from '../assets/novanest.svg';
 import CustomButton from './button';
 import { NavLinks } from '../constants';
 
@@ -53,6 +54,9 @@ const NavbarComp:FC<Props> = (props: Props) => {
       <div className=' sm:hidden flex justify-between items-center relative'>
         <div className=' w-[40px] h-[40px] rounded-[10px] bg-[#2c2f32] flex justify-center items-center cursor-pointer '>
           <Image src={thirdweb} alt='user' className=' w-[60%] h-[60%] object-contain  '/>
+        </div>
+        <div className=' text-white cursor-pointer '>
+          <Image src={Novanest} alt='novanest' className=' w-24 object-contain cursor-pointer' />
         </div>
         <Image src={navIcon} alt='menu' className=' w-[28px] h-28px] object-contain cursor-pointer mr-2' onClick={()=> setToggledrawer((prev)=>!prev)}/>
         <div className={`absolute top-16 right-0 left-0 rounded-xl bg-[#1c1c24] z-10 shadow-xl py-4 ${!toggledrawer?'-translate-y-[100vh]':'translate-y-0'} transition-all duration-700`}>
