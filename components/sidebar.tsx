@@ -34,23 +34,14 @@ type SideBarProps = {}
 
 //main sidebar compoment
 const SidebarComp:FC<SideBarProps>= (props: SideBarProps) => {
-    const [isActive, setIsActive]=useState('');
 
-    //check if active state to get the state
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            const setActive = localStorage.getItem('active') || 'dashboard';
-            setIsActive(setActive);
-        }
-    }, []);
-    //set state
-    //whenever active state being change isActive state also be changed
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            localStorage.setItem('active', isActive);
-        }
-    }, [isActive]);
+    const [isActive, setIsActive]=useState(localStorage.getItem('active')||'dashboard' );
     
+    //navigation active state
+    useEffect(()=>{
+        localStorage.setItem('active', isActive);
+    },[isActive])
+
     const navigate=(link:string)=>{
         window.location.href= link;
     }
