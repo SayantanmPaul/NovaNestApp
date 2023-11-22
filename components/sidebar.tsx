@@ -22,9 +22,9 @@ const UtilIcon:FC<NovaNestIconProps>=({styles, name, imgURl, isActive, disabled,
     <Tooltip title={name} placement='right'>
         <div className={` w-[48px] h-[48px] rounded-lg ${isActive && isActive==name && `bg-[#2c2f32]`} flex justify-center items-center ${!disabled && 'cursor-pointer'} ${styles}`} onClick={handleClicked}>
         {!isActive ?(
-            <Image src={imgURl} alt='NovaNestIcon' className=' w-1/2 h-1/2'/>
+            <Image src={imgURl} priority alt='NovaNestIcon' className=' w-1/2 h-1/2'/>
         ):(
-            <Image src={imgURl} alt='Icon' className={`w-1/2 h-1/2 ${isActive !== name && `grayscale`}`} />
+            <Image src={imgURl} priority alt='Icon' className={`w-1/2 h-1/2 ${isActive !== name && `grayscale`}`} />
         )}
         </div>
     </Tooltip>
@@ -34,13 +34,22 @@ type SideBarProps = {}
 
 //main sidebar compoment
 const SidebarComp:FC<SideBarProps>= (props: SideBarProps) => {
-    const [isActive, setIsActive]=useState(localStorage.getItem('active')||'dashboard' );
+    const [isActive, setIsActive]=useState('');
 
-    //navigation active state
-    useEffect(()=>{
-        localStorage.setItem('active', isActive);
-    },[isActive])
-
+    //check if active state to get the state
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const setActive = localStorage.getItem('active') || 'dashboard';
+            setIsActive(setActive);
+        }
+    }, []);
+    //set state
+    //whenever active state being change isActive state also be changed
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            localStorage.setItem('active', isActive);
+        }
+    }, [isActive]);
     
     const navigate=(link:string)=>{
         window.location.href= link;

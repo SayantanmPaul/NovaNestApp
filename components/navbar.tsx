@@ -7,6 +7,7 @@ import { search, thirdweb} from '../assets';
 import Novanest from '../assets/novanest.svg';
 import CustomButton from './button';
 import { NavLinks } from '../constants';
+import { Tooltip } from '@mui/material';
 
 type Props = {}
 
@@ -44,9 +45,11 @@ const NavbarComp:FC<Props> = (props: Props) => {
         />
 
         <Link href='/profile'>
-          <div className=' w-14 h-14 rounded-xl bg-[#2c2f32] flex justify-center items-center cursor-pointer '>
-            <Image src={thirdweb} alt='user' className=' w-[60%] h-[60%] object-contain  '/>
-          </div>
+          <Tooltip title='profile' placement='bottom'>
+            <div className=' w-14 h-14 rounded-xl bg-[#2c2f32] flex justify-center items-center cursor-pointer '>
+              <Image src={thirdweb} alt='user' className=' w-[60%] h-[60%] object-contain  '/>
+            </div>
+          </Tooltip>
         </Link>          
       </div>
 
