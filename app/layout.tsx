@@ -9,7 +9,7 @@ export default function RootLayout({
     return (
       <html lang="en">
         <body>
-          <div className='sm:-8 p-4 bg-[#100720] min-h-screen flex flex-row'>
+          <div className='sm:-8 p-4 min-h-screen flex flex-row'>
             <div className='sm:flex hidden mr-10 relative'>
               <SidebarComp/>
             </div>
