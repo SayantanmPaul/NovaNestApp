@@ -18,10 +18,12 @@
     "@thirdweb-dev/sdk": "^4.0.11",
     "ethers": "^5.7.2",
     "next": "^13",
+    "next-themes": "^0.2.1",
     "react": "^18.2",
     "react-dom": "^18.2"
   },
   "devDependencies": {
+    "@heroicons/react": "^2.0.18",
     "@types/node": "^18.11.11",
     "@types/react": "^18",
     "autoprefixer": "^10.4.16",
