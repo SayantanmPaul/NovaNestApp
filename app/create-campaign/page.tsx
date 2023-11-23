@@ -29,9 +29,9 @@ const CreateCampaignPage = (props: Props) => {
 
   // frontend section
   return (
-    <div className=' bg-[#1c1c24] create-campaign flex flex-col items-center justify-center rounded-[10px] sm:p-10 p-4'>
+    <div className=' dark:bg-black-bg bg-light-bg border-[1px] border-solid dark:border-[#4B0150] border-indigo-300 backdrop-blur-lg backdrop-saturate-200 duration-500 ease-in-out create-campaign flex flex-col items-center justify-center rounded-[10px] sm:p-10 p-4'>
       {isLoading && 'Loader...'}
-      <h1 className=' font-light lg:text-4xl text-3xl leading-9 text-white font-raleway self-start sm:min-w-[380px] pt-4'> Let&apos;s discuss on your campaign ✨</h1>
+      <h1 className=' dark:font-light lg:text-4xl text-3xl leading-9 font-medium text-[#37bcf8] dark:text-white duration-300 font-raleway self-start sm:min-w-[380px] pt-4'> Let&apos;s discuss on your campaign ✨</h1>
       <form onSubmit={ handleSubmit} className=' w-full mt-10 flex flex-col gap-8'>
         <div className=' flex flex-wrap gap-10'>
             <FormInput 

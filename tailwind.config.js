@@ -13,6 +13,7 @@ module.exports = {
     extend: { 
       fontFamily:{
         raleway: [ 'Raleway', "sans-serif"],
+        inter: ['Inter', 'sans-serif']
       },
       //custom color inputs
       colors:{
