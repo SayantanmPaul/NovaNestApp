@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 type Props = {}
 
 export const metadata: Metadata = {
-  title: 'NovaNest:home',
+  title: 'NovaNest App',
 }
 
 const page = (props: Props) => {
