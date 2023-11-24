@@ -15,7 +15,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.18",
     "@thirdweb-dev/react": "^4.1.2",
-    "@thirdweb-dev/sdk": "^4.0.11",
+    "@thirdweb-dev/sdk": "^4.0.17",
     "ethers": "^5.7.2",
     "next": "^13",
     "next-themes": "^0.2.1",
