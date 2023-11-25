@@ -28,7 +28,7 @@ const NavbarComp:FC<Props> = (props: Props) => {
   return (
     <div className=' flex flex-col-reverse md:flex-row justify-between mb-[35px] gap-6 '>
       <div className=' lg:flex-1 flex flex-row max-w-[458px] py-1 pl-4 pr-1 h-14 dark:bg-black-bg bg-light-bg border-[1px] border-solid dark:border-black-bg border-light-bg backdrop-blur-lg backdrop-saturate-200 rounded-full duration-500 ease-in-out'>
-      <input type="text" placeholder='search for campaigns' className=' flex w-full font-normal tracking-wide text-[14px] dark:placeholder:text-[#4b5264] placeholder:text-slate-400 placeholder:font-inter font-inter dark:text-slate-200 text-[#1e293b] bg-transparent outline-none' />
+      <input id='search' autoComplete='off' name='search' type="text" placeholder='search for campaigns' className=' flex w-full font-normal tracking-wide text-[14px] dark:placeholder:text-[#4b5264] placeholder:text-slate-400 placeholder:font-inter font-inter dark:text-slate-200 text-[#1e293b] bg-transparent outline-none' />
         <div className=' w-[72px] h-full rounded-full bg-gradient-to-br from-[#0093E9] to-[#80D0C7] dark:bg-gradient-to-tr dark:from-indigo-900 dark:via-purple-900 dark:to-pink-900 flex justify-center items-center cursor-pointer duration-500 ease-in-out '>
           <Image width={40} height={40} src={search} alt='search' className=' w-[15px] h-[15px] object-contain'/>
         </div>

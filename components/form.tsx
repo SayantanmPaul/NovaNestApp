@@ -11,12 +11,15 @@ type Props = {
 
 const FormInput:React.FC<Props> =( {lableName, placeholder, inputType, istextArea, value, handleChange}) => {
   return (
-    <label className='flex flex-col flex-1 w-full'>
+    <label htmlFor={lableName} className='flex flex-col flex-1 w-full'>
         {lableName && (
             <span className=' font-medium text-sm font-inter leading-6 dark:text-[#898191] text-[#6366f1] mb-[10px]'>{lableName}</span>
         )}
         {istextArea ? (
-            <textarea   
+            <textarea 
+            id={lableName}
+            autoComplete="off"
+            name={value}  
             required 
             value={value} 
             onChange={handleChange} 
@@ -26,6 +29,9 @@ const FormInput:React.FC<Props> =( {lableName, placeholder, inputType, istextAre
         />
         ):(
             <input 
+                id={lableName}
+                autoComplete="off"
+                name={value}
                 required 
                 value={value} 
                 onChange={handleChange} 
