@@ -1,5 +1,15 @@
-## Getting Started
+![novanest](https://github.com/SayantanmPaul/NovaNestApp/assets/103353878/eebd4e32-da33-4716-a996-383f9c6cf094)
 
+## Project NovaNest
+
+- Novanest uses MetaMask for wallet management and Ethereum transactions for a crowdfunding platform for your ambitious projects built with ThirdWeb.
+- Users will be able to create new campaigns, set a funding goal, and receive funds from supporters.
+- All the transactions will be 100% received by the campaign creators from supporters, there's no service charge included.
+- All transactions will be transparent and recorded on the Ethereum blockchain, providing a secure and trustless environment for crowdfunding.
+
+### Details further updating soon
+
+##
 Create a project using this example:
 
 ```bash
@@ -22,19 +32,3 @@ Deploy a copy of your application to IPFS using the following command:
 ```bash
 yarn deploy
 ```
-
-## Learn More
-
-To learn more about thirdweb and Next.js, take a look at the following resources:
-
-- [thirdweb React Documentation](https://docs.thirdweb.com/react) - learn about our React SDK.
-- [thirdweb TypeScript Documentation](https://docs.thirdweb.com/typescript) - learn about our JavaScript/TypeScript SDK.
-- [thirdweb Portal](https://docs.thirdweb.com) - check our guides and development resources.
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Templates](https://thirdweb.com/templates)
-
-You can check out [the thirdweb GitHub organization](https://github.com/thirdweb-dev) - your feedback and contributions are welcome!
-
-## Join our Discord!
-
-For any questions, suggestions, join our discord at [https://discord.gg/thirdweb](https://discord.gg/thirdweb).
