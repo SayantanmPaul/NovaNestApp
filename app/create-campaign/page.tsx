@@ -1,14 +1,15 @@
 "use client";
 import React, {useState, useEffect, ChangeEvent} from 'react'
 import { ethers } from 'ethers'
-import { money } from '../../assets'
 import CustomButton from '@/components/button'
 import FormInput from '@/components/form';
 import { checkImageexist } from '../../utils/utility'
+import { useStateContext } from '../../context';
 type Props = {}
 
 const CreateCampaignPage = (props: Props) => {
-  
+  const { createCampaign }= useStateContext();
+
   const [isLoading, setIsLoading]= useState(false);
   const[ form, setForm]=useState({
     name:'',
@@ -18,13 +19,28 @@ const CreateCampaignPage = (props: Props) => {
     deadline: '',
     image: ''
   })
+
+  const navigate=(link: string)=>{
+    window.location.href= link;
+  }
+
   const handleFormInputChange=(fieldName:string, e:ChangeEvent<HTMLInputElement>)=>{
     setForm({...form, [fieldName]: e.target.value})
   }
   //load the submitted data
   const handleSubmit=(e)=>{
     e.preventDefault();
-    console.log(form);  
+
+    checkImageexist(form.image, async(exists)=>{
+      if(exists){
+        setIsLoading(true);
+        await createCampaign({...form, target: ethers.utils.parseUnits(form.targetAmount, 18)})
+        setIsLoading(false);
+      }else{
+        alert("provide valid image url")
+        setForm({...form, image: ''})
+      }
+    })
   }
 
   // frontend section

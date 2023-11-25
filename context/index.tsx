@@ -10,13 +10,11 @@
         deadlineProject: string,
         images: string,
     }
-
     interface Props{
         children:React.ReactNode
     }
     
     const StateContext= createContext(null);
-
     //thirdweb logic
     export const StateContextProvider:React.FC<Props>=({children})=>{
 
@@ -24,7 +22,7 @@
         const {mutateAsync: createCampaign}= 
         useContractWrite(
             contract,
-            'createCampaign',
+            'createCampagin',
         );
 
         const address=useAddress();
