@@ -25,7 +25,7 @@ const FormInput:React.FC<Props> =( {lableName, placeholder, inputType, istextAre
             onChange={handleChange} 
             rows={10}
             placeholder={placeholder}
-            className=' py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] focus:border-indigo-600 border-slate-400 dark:border-[#3a3a43] bg-transparent text-[#1e293b] dark:text-white font-raleway text-sm placeholder:text-slate-300 dark:placeholder:text-[#4b5264] placeholder:font-raleway rounded-[10px] sm:min-w-[300px] '
+            className=' py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] focus:border-indigo-600 border-slate-400 dark:border-[#3a3a43] bg-transparent text-[#1e293b] dark:text-white font-raleway text-sm placeholder:text-slate-400 dark:placeholder:text-[#4b5264] placeholder:font-raleway rounded-[10px] sm:min-w-[300px] '
         />
         ):(
             <input 
@@ -38,7 +38,7 @@ const FormInput:React.FC<Props> =( {lableName, placeholder, inputType, istextAre
                 type={inputType}
                 step={0.1}
                 placeholder={placeholder}
-                className=' py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] focus:border-indigo-600 border-slate-400 dark:border-[#3a3a43] bg-transparent text-[#1e293b] dark:text-white text-sm placeholder:text-slate-300 dark:placeholder:text-[#4b5264] placeholder:font-raleway rounded-[10px] sm:min-w-[300px] '/>
+                className=' py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] focus:border-indigo-600 border-slate-400 dark:border-[#3a3a43] bg-transparent text-[#1e293b] dark:text-white text-sm placeholder:text-slate-400 dark:placeholder:text-[#4b5264] placeholder:font-raleway rounded-[10px] sm:min-w-[300px] '/>
         )}
     </label>
   )

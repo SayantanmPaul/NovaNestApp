@@ -8,9 +8,8 @@ import { useStateContext } from '../../context';
 type Props = {}
 
 const CreateCampaignPage = (props: Props) => {
-  const { createCampaign }= useStateContext();
-
   const [isLoading, setIsLoading]= useState(false);
+  const { createCampaign }=useStateContext();
   const[ form, setForm]=useState({
     name:'',
     title: '',
@@ -28,7 +27,7 @@ const CreateCampaignPage = (props: Props) => {
     setForm({...form, [fieldName]: e.target.value})
   }
   //load the submitted data
-  const handleSubmit=(e)=>{
+  const handleSubmit= async(e)=>{
     e.preventDefault();
 
     checkImageexist(form.image, async(exists)=>{

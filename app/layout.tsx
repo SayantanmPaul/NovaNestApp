@@ -13,7 +13,7 @@ export default function RootLayout({
     return (
       <html lang="en">
         <body>
-        <ThirdwebProvider activeChain="goerli" clientId='f90428530ab203231bd8bee53212182c'>
+        <ThirdwebProvider activeChain="goerli" clientId={process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID}>
           <StateContextProvider>
             <Providers>
               <div className='sm:-8 p-4 min-h-screen flex flex-row '>
