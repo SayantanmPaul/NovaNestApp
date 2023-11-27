@@ -27,7 +27,7 @@ const CreateCampaignPage = (props: Props) => {
     setForm({...form, [fieldName]: e.target.value})
   }
   //load the submitted data
-  const handleSubmit= async(e)=>{
+  const handleSubmit= async(e: React.FormEvent<HTMLFormElement>)=>{
     e.preventDefault();
 
     checkImageexist(form.image, async(exists)=>{
