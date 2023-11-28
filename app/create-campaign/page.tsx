@@ -35,6 +35,7 @@ const CreateCampaignPage = (props: Props) => {
         setIsLoading(true);
         await createCampaign({...form, target: ethers.utils.parseUnits(form.targetAmount, 18)})
         setIsLoading(false);
+        navigate('/')
       }else{
         alert("provide valid image url")
         setForm({...form, image: ''})
@@ -73,6 +74,7 @@ const CreateCampaignPage = (props: Props) => {
             value={form.description}
             handleChange={(e)=>handleFormInputChange('description',e)}
         />
+        <p className=' font-sans text-indigo-400 text-sm leading-5 '>* you will get 100% amount of the raised amount,there&apos;s no platform charge </p>
         <div className='flex flex-wrap gap-10'>
           <FormInput 
             lableName="Goal amount *"
