@@ -8,6 +8,7 @@ import Novanest from '../assets/novanest.svg';
 import CustomButton from './button';
 import { NavLinks } from '../constants';
 import { Tooltip } from '@mui/material';
+import { useStateContext } from '../context';
 
 type Props = {}
 
@@ -15,11 +16,12 @@ const NavbarComp:FC<Props> = (props: Props) => {
   const [isActive, setIsActive]=useState(typeof window!=='undefined'? localStorage.getItem('active')||'dashboard':'dashboard');
   const [toggledrawer,setToggledrawer]=useState(false);
 
+  const { connect, address}=useStateContext();
+
   useEffect(()=>{
     localStorage.setItem('active', isActive)
   }, [isActive]);
 
-  const address='0xabc'
 
   const navigate=(link: string)=>{
     window.location.href= link;
@@ -36,11 +38,11 @@ const NavbarComp:FC<Props> = (props: Props) => {
       <div className='sm:flex hidden flex-row justify-end gap-4'>
         <CustomButton 
           btntype="button" 
-          title={address ? "create campaign": "onnect"}
+          title={address ? "create campaign": "connect"}
           styles={address? "bg-[#1dc071]:": "bg-[#8c6dfd]"}
           handleClicked={()=>{
             if(address) navigate('create-campaign')
-            else navigate('connect')
+            else connect()
           }}
         />
 
@@ -78,11 +80,11 @@ const NavbarComp:FC<Props> = (props: Props) => {
           <div className=' flex mx-4'>
             <CustomButton 
               btntype="button" 
-              title={address ? "create campaign": "onnect"}
+              title={address ? "create campaign": "connect"}
               styles={address? "bg-[#1dc071]:": "bg-[#8c6dfd]"}
               handleClicked={()=>{
                 if(address) navigate('create-campaign')
-                else navigate('connect')
+                else connect()
               }}
             />
           </div>

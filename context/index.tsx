@@ -48,6 +48,7 @@ export const StateContextProvider:React.FC<Props>=({children})=>{
         <StateContext.Provider value={{
             address,
             contract,
+            connect,
             createCampaign: publishCampaign,
         }}>
         {children}
